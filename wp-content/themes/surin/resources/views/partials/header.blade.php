@@ -1,10 +1,33 @@
-<header class="banner">
+<header class="header">
   <div class="container">
-    <a class="brand" href="{{ home_url('/') }}">{{ get_bloginfo('name', 'display') }}</a>
-    <nav class="nav-primary">
-      @if (has_nav_menu('primary_navigation'))
-        {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav']) !!}
-      @endif
-    </nav>
+    <span>About My</span>
+  </div>
+  <hr>
+  <div class="container">
+      <p><?php bloginfo( 'name' ); ?></p>
+      <p>
+        <?php
+          $description = get_bloginfo( 'description', 'display' );
+          if ( $description || is_customize_preview() ) {
+            echo $description;
+           }
+        ?>
+      </p>
+  </div>
+  <div class="menu">
+      <ul>
+          <li>
+              <a href="#" class="active">HOME</a>
+          </li>
+          <li>
+              <a href="#">CATEGORIES</a>
+          </li>
+          <li>
+              <a href="#">STORE</a>
+          </li>
+          <li>
+              <a href="#">OTHERS</a>
+          </li>
+      </ul>
   </div>
 </header>
