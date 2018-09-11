@@ -43,8 +43,15 @@ class App extends Controller
      */
     public static function postResponse()
     {
-        $content = wp_remote_request( 'http://127.0.0.1:8000/api/posts/');
+        // TODO: Улучшить мметод
+        $url = $_SERVER['REQUEST_URI'];
+        $url = explode('/', $url);
+        $url = array_filter($url);
 
+        $pageId = $url[2] ? $url[2] : 1;
+
+
+        $content = wp_remote_request( 'http://127.0.0.1:8000/api/posts/' . $pageId);
         return json_decode($content['body'])->posts;
     }
 
@@ -62,15 +69,16 @@ class App extends Controller
 
         $pageId = $url[2] ? $url[2] : 1;
 
-
-        $big = 999999999; // need an unlikely integer
+        $result = wp_remote_request('http://127.0.0.1:8000/api/count/posts/');
+        $count = json_decode($result['body'])->count;
+        $total = round($count / 2);
 
         $pagination = paginate_links( array(
-            'base' => str_replace( $big, '%#%', esc_url( '/api-post/%#%/' ) ),
+            'base' => str_replace( $count, '%#%', esc_url( '/api-post/%#%/' ) ),
             'format' => '1',
             'current' => $pageId,
-            'total' => 5,
-            'posts_per_page' => 5,
+            'total' => $total,
+            'posts_per_page' => 3,
             'prev_next' => false,
         ) );
 
