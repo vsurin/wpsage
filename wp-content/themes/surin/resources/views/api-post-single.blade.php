@@ -11,6 +11,6 @@
 
     <div class="api-body-post">
         <h1>{{ $post->title }}</h1>
-        <div>{{ $post->content }}</div>
+        <div>{!! $post->content !!}</div>
     </div>
 @endsection

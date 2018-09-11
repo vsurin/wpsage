@@ -98,7 +98,6 @@ class App extends Controller
         $pageId = $url[2] ? $url[2] : 1;
 
         $content = wp_remote_request( 'http://127.0.0.1:8000/api/post/' . $pageId );
-        $test = json_decode($content['body'])->post;
 
         return json_decode($content['body'])->post;
     }

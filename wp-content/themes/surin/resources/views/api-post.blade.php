@@ -27,7 +27,8 @@
 
             <div class="{{ $classContentPost }}">
                 <h3>{{ $post->title }}</h3>
-                <div>{{ $post->content }}</div>
+                <span class="api-category-post">Posted in <span>{{ $post->c_title }}</span></span>
+                <div>{!! \Illuminate\Support\Str::limit($post->content, 600 ,'....')  !!}</div>
                 <a href="/api-post-single/{{ $post->id }}/" class="api-buttom-link"><div class="bottom-readmore">Read more</div></a>
             </div>
         </div>
