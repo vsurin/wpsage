@@ -90,8 +90,16 @@ class App extends Controller
      */
     public static function postSingleResponse()
     {
-        $content = wp_remote_request( 'http://127.0.0.1:8000/api/posts/4' );
+        // TODO: Улучшить мметод
+        $url = $_SERVER['REQUEST_URI'];
+        $url = explode('/', $url);
+        $url = array_filter($url);
 
-        return $content['body'];
+        $pageId = $url[2] ? $url[2] : 1;
+
+        $content = wp_remote_request( 'http://127.0.0.1:8000/api/post/' . $pageId );
+        $test = json_decode($content['body'])->post;
+
+        return json_decode($content['body'])->post;
     }
 }
