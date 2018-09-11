@@ -50,8 +50,12 @@ class App extends Controller
 
         $pageId = $url[2] ? $url[2] : 1;
 
-
         $content = wp_remote_request( 'http://127.0.0.1:8000/api/posts/' . $pageId);
+
+        if ($content->errors) {
+            return null;
+        }
+
         return json_decode($content['body'])->posts;
     }
 
@@ -70,6 +74,10 @@ class App extends Controller
         $pageId = $url[2] ? $url[2] : 1;
 
         $result = wp_remote_request('http://127.0.0.1:8000/api/count/posts/');
+        if ($result->errors) {
+            return null;
+        }
+
         $count = json_decode($result['body'])->count;
         $total = round($count / 2);
 
@@ -98,6 +106,9 @@ class App extends Controller
         $pageId = $url[2] ? $url[2] : 1;
 
         $content = wp_remote_request( 'http://127.0.0.1:8000/api/post/' . $pageId );
+        if ($content->errors) {
+            return null;
+        }
 
         return json_decode($content['body'])->post;
     }
