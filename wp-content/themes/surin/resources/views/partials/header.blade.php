@@ -17,7 +17,7 @@
   <div class="menu">
       <ul>
           <li>
-              <a href="#" class="active">HOME</a>
+              <a href="/api-post/" class="active">HOME</a>
           </li>
           <li>
               <a href="#">CATEGORIES</a>
