@@ -28,7 +28,7 @@
             <div class="{{ $classContentPost }}">
                 <h3>{{ $post->title }}</h3>
                 <div>{{ $post->content }}</div>
-                <div class="bottom-readmore">Read more</div>
+                <a href="/api-post-single/{{ $post->id }}/" class="api-buttom-link"><div class="bottom-readmore">Read more</div></a>
             </div>
         </div>
         <div class="api-bottom-post"></div>
