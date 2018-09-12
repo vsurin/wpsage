@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use function PHPSTORM_META\elementType;
 use Sober\Controller\Controller;
 
 class App extends Controller
@@ -37,6 +38,17 @@ class App extends Controller
     }
 
     /**
+     * Получаем ссылку сайта к которому подключаемся по API
+     *
+     * @return null|string|string[]
+     */
+    public static function getSite()
+    {
+        $site = esc_attr( get_option('field_api_site'));
+        return preg_replace("#/$#", "", $site);
+    }
+
+    /**
      * Возврашает json постов
      *
      * @return mixed
@@ -50,7 +62,7 @@ class App extends Controller
 
         $pageId = $url[2] ? $url[2] : 1;
 
-        $content = wp_remote_request( 'http://127.0.0.1:8000/api/posts/' . $pageId);
+        $content = wp_remote_request( self::getSite() . '/api/posts/' . $pageId);
 
         if ($content->errors) {
             return null;
@@ -73,7 +85,7 @@ class App extends Controller
 
         $pageId = $url[2] ? $url[2] : 1;
 
-        $result = wp_remote_request('http://127.0.0.1:8000/api/count/posts/');
+        $result = wp_remote_request(self::getSite() . '/api/post/count/');
         if ($result->errors) {
             return null;
         }
@@ -94,6 +106,8 @@ class App extends Controller
     }
 
     /**
+     * Получаем контент одного поста
+     *
      * @return mixed
      */
     public static function postSingleResponse()
@@ -105,7 +119,7 @@ class App extends Controller
 
         $pageId = $url[2] ? $url[2] : 1;
 
-        $content = wp_remote_request( 'http://127.0.0.1:8000/api/post/' . $pageId );
+        $content = wp_remote_request( self::getSite() . '/api/post/show/' . $pageId );
         if ($content->errors) {
             return null;
         }

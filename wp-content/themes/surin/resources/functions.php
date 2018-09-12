@@ -90,3 +90,37 @@ Container::getInstance()
             'view' => require dirname(__DIR__).'/config/view.php',
         ]);
     }, true);
+
+function add_option_field_to_general_admin_page(){
+    $option_name = 'field_api_site';
+
+    // регистрируем опцию
+    register_setting( 'general', $option_name );
+
+    // добавляем поле
+    add_settings_field(
+        'myprefix_setting-id',
+        'Ссылка для API',
+        'myprefix_setting_callback_function',
+        'general',
+        'default',
+        array(
+            'id' => 'myprefix_setting-id',
+            'option_name' => $option_name
+        )
+    );
+}
+add_action('admin_menu', 'add_option_field_to_general_admin_page');
+
+function myprefix_setting_callback_function( $val ){
+    $id = $val['id'];
+    $option_name = $val['option_name'];
+    echo '<input
+        type="text"
+        name="'.$option_name.'"
+        id="'.$id.'"
+        value="'.esc_attr( get_option($option_name)).'"
+    />';
+}
+
+

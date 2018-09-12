@@ -18,7 +18,7 @@
 
                 @if($post->image)
                     <div class="api-post-conten-image">
-                        <div style="background: url('http://127.0.0.1:8000/upload/{{ $post->image }}')"></div>
+                        <div style="background: url('http://test2.loc/upload/{{ $post->image }}')"></div>
                     </div>
 
                     @php
