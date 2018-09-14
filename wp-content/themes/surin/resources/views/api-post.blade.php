@@ -29,7 +29,7 @@
                 <div class="{{ $classContentPost }}">
                     <h3>{{ $post->title }}</h3>
                     <span class="api-category-post">Posted in <span>{{ $post->c_title }}</span></span>
-                    <div>{!! \Illuminate\Support\Str::limit($post->content, 600 ,'....')  !!}</div>
+                    <div class="api-post-content-div">{!! \Illuminate\Support\Str::limit($post->content, 470 ,'....')  !!}</div>
                     <a href="/api-post-single/{{ $post->id }}/" class="api-buttom-link"><div class="bottom-readmore">Read more</div></a>
                 </div>
             </div>
@@ -42,7 +42,9 @@
         @include('partials.404')
     @endif
 
+    @if ($posts !== null)
     <div class="pagination">{!! \App\Controllers\App::getPagination() !!}</div>
+    @endif
 
     <div class="api-bottom-post"></div>
 @endsection
