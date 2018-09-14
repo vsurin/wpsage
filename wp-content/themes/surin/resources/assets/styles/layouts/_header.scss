@@ -2,43 +2,113 @@
   background: #181616;
 
   > div:nth-child(1) {
-    height: 34px;
+    height: 31px;
     color: #858484;
 
     span {
-      color: #555;
-      line-height: 40px;
+      width: 51px;
+      height: 8px;
+      opacity: 0.34;
+      color: #ffffff;
+      font-family: Montserrat;
+      font-size: 10px;
+      font-weight: 300;
+      line-height: 31px;
+      letter-spacing: 0.25px;
     }
   }
 
   > div:nth-child(3) {
-    height: 183px;
+    height: 187px;
 
     p:nth-child(1) {
-      color: #fff;
-      font-size: 46px;
-      margin-bottom: 0;
+      margin: 0;
+      width: 110px;
+      height: 38px;
+      color: #ffffff;
+      font-family: Montserrat;
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 40px;
+      letter-spacing: -2.4px;
+      padding-top: 56px;
     }
 
     p:nth-child(2) {
-      color: #fff;
-      margin-top: 0;
+      width: 234px;
+      color: #ffffff;
+      font-family: Montserrat;
+      font-size: 16px;
+      font-weight: 400;
+      margin-top: 13px;
     }
   }
 
   hr {
     color: #333;
+    margin: 0;
   }
 
-  .menu {
-    background: #f8f8f8;
-    height: 52px;
+  .socal-icon {
+    float: right;
+    margin-top: 10px;
+
+    a {
+      float: left;
+    }
+
+    div {
+      background-image: url("/wp-content/themes/surin/resources/assets/images/icon-social.png");
+      background-repeat: no-repeat;
+      height: 14px;
+      width: 22px;
+    }
+
+    .icon-facebook {
+      background-position-x: 0;
+    }
+
+    .icon-twiter {
+      background-position-x: -25px;
+    }
+
+    .icon-bb {
+      background-position-x: -45px;
+    }
+
+    .icon-soc1 {
+      background-position-x: -65px;
+    }
+
+    .icon-p {
+      background-position-x: -85px;
+    }
+
+    .icon-inst {
+      background-position-x: -113px;
+    }
+  }
+}
+
+.menu {
+  background: #f8f8f8;
+  height: 55px;
+
+  ul {
+    margin: 0;
+    margin-left: -53px;
   }
 
-  .menu ul li {
+  ul li {
     float: left;
     margin-left: 15px;
     list-style: none;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 24px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
 
     a {
       text-decoration: none;
@@ -50,12 +120,12 @@
     }
   }
 
-  .menu ul li .active {
+  ul li .active {
     color: #23a0bf;
-    border-bottom: 3px solid #23a0bf;
+    border-bottom: 3px solid;
   }
 
-  .menu ul li a:hover {
+  ul li a:hover {
     color: #23a0bf;
     border-bottom: 3px solid;
   }
@@ -63,35 +133,46 @@
 
 .heade-slider {
   background: #b7b7b7;
-  height: 406px;
+  height: 372px;
   margin-bottom: 30px;
 
   h2 {
     color: #fff;
+    font-family: Montserrat;
+    font-weight: 700;
+    line-height: 24px;
     font-size: 36px;
     text-align: center;
     padding-top: 110px;
     text-transform: uppercase;
+    margin-bottom: 28px;
   }
 
   p {
     color: #fff;
-    max-width: 687px;
+    max-width: 777px;
     text-align: center;
     margin: 0 auto;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
   }
 
   div {
-    text-transform: uppercase;
     text-align: center;
-    border: 1px solid #fff;
-    width: 150px;
-    height: 50px;
-    line-height: 50px;
+    border: 2px solid #fff;
+    width: 130px;
+    height: 44px;
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 19px;
     border-radius: 5px;
     color: #fff;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 44px;
+    text-transform: uppercase;
   }
 }
 
