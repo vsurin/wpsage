@@ -46,8 +46,5 @@
     <div class="pagination">{!! \App\Controllers\App::getPagination() !!}</div>
     @endif
 
-
-
-
     <div class="api-bottom-post"></div>
 @endsection

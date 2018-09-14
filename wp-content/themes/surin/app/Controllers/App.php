@@ -139,6 +139,12 @@ class App extends Controller
         return esc_attr( get_option('api_count_post_page'));
     }
 
+    /**
+     * Полуаем строку с категориями
+     *
+     * @param int $idPost
+     * @return string
+     */
     public static function getCategories(int $idPost)
     {
         $categories = '';
@@ -150,5 +156,30 @@ class App extends Controller
         }
 
         return $categories;
+    }
+
+
+    /**
+     * Возврашает постраничную навигацию для постов
+     *
+     * @return array|string|void
+     */
+    public static function getPaginationPost($count)
+    {
+        $settingCountPage = esc_attr( get_option('posts_per_page'));
+
+        $total = round($count / $settingCountPage);
+        if ($count > $settingCountPage && $total == 1) {
+            $total = 2;
+        }
+
+        $pagination = paginate_links( array(
+            'base' => str_replace( $count, '%#%', esc_url( '/page/%#%/' ) ),
+            'current' => self::getPageId(),
+            'total' => $total,
+            'prev_next' => false,
+        ) );
+
+        return $pagination;
     }
 }
