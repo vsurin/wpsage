@@ -18,7 +18,7 @@
 
                 @if($post->image)
                     <div class="api-post-conten-image">
-                        <div style="background: url('http://test2.loc/upload/{{ $post->image }}')"></div>
+                        <div style="background: url('{{ \App\Controllers\App::getSite() }}/upload/{{ $post->image }}')"></div>
                     </div>
 
                     @php
@@ -45,6 +45,9 @@
     @if ($posts !== null)
     <div class="pagination">{!! \App\Controllers\App::getPagination() !!}</div>
     @endif
+
+
+
 
     <div class="api-bottom-post"></div>
 @endsection
