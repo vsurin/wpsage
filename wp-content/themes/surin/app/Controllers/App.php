@@ -138,4 +138,17 @@ class App extends Controller
     {
         return esc_attr( get_option('api_count_post_page'));
     }
+
+    public static function getCategories(int $idPost)
+    {
+        $categories = '';
+
+        if ($idPost) {
+            foreach (get_the_category($idPost) as $category) {
+                $categories .= $category->name.', ';
+            }
+        }
+
+        return $categories;
+    }
 }
