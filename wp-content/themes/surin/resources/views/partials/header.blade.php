@@ -38,19 +38,6 @@
 </header>
 <div class="menu">
     <div class="container">
-        <ul>
-            <li>
-                <a href="/api-post/" class="active">HOME</a>
-            </li>
-            <li>
-                <a href="#">CATEGORIES</a>
-            </li>
-            <li>
-                <a href="#">STORE</a>
-            </li>
-            <li>
-                <a href="#">OTHERS</a>
-            </li>
-        </ul>
+        {{ wp_nav_menu() }}
     </div>
 </div>
