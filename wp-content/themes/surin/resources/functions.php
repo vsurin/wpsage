@@ -91,28 +91,69 @@ Container::getInstance()
         ]);
     }, true);
 
-function add_option_field_to_general_admin_page(){
-    $option_name = 'field_api_site';
+
+/**
+ * Ссылка которая ведет на сайт с API
+ */
+function api_site_general_admin_page(){
+    $option_name = 'api_site';
 
     // регистрируем опцию
     register_setting( 'general', $option_name );
 
     // добавляем поле
     add_settings_field(
-        'myprefix_setting-id',
+        'api_site-id',
         'Ссылка для API',
-        'myprefix_setting_callback_function',
+        'api_site_callback_function',
         'general',
         'default',
         array(
-            'id' => 'myprefix_setting-id',
+            'id' => 'api_site-id',
             'option_name' => $option_name
         )
     );
 }
-add_action('admin_menu', 'add_option_field_to_general_admin_page');
+add_action('admin_menu', 'api_site_general_admin_page');
 
-function myprefix_setting_callback_function( $val ){
+function api_site_callback_function( $val ){
+    $id = $val['id'];
+    $option_name = $val['option_name'];
+
+    echo '<input
+        type="text"
+        name="'.$option_name.'"
+        id="'.$id.'"
+        value="'.esc_attr( get_option($option_name)).'"
+    />';
+}
+
+
+/**
+ * Количество жлементов на странице
+ */
+function api_count_post_page_general_admin_page(){
+    $option_name = 'api_count_post_page';
+
+    // регистрируем опцию
+    register_setting( 'general', $option_name );
+
+    // добавляем поле
+    add_settings_field(
+        'api_count_post_page-id',
+        'Количество постов на странице',
+        'api_count_post_page_callback_function',
+        'general',
+        'default',
+        array(
+            'id' => 'api_count_post_page-id',
+            'option_name' => $option_name
+        )
+    );
+}
+add_action('admin_menu', 'api_count_post_page_general_admin_page');
+
+function api_count_post_page_callback_function( $val ){
     $id = $val['id'];
     $option_name = $val['option_name'];
     echo '<input
@@ -123,4 +164,17 @@ function myprefix_setting_callback_function( $val ){
     />';
 }
 
+register_sidebar(array(
+    'name' => __("Footer widget 2", 'Surin'),
+    'id' => 'sidebar-footer-2',
+));
 
+register_sidebar(array(
+    'name' => __("Footer widget 3", 'Surin'),
+    'id' => 'sidebar-footer-3',
+));
+
+register_sidebar(array(
+    'name' => __("Footer widget 4", 'Surin'),
+    'id' => 'sidebar-footer-4',
+));
