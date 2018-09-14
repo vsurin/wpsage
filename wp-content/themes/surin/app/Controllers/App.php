@@ -44,7 +44,7 @@ class App extends Controller
      */
     public static function getSite()
     {
-        $site = esc_attr( get_option('field_api_site'));
+        $site = esc_attr( get_option('api_site'));
         return preg_replace("#/$#", "", $site);
     }
 
@@ -55,20 +55,21 @@ class App extends Controller
      */
     public static function postResponse()
     {
-        // TODO: Улучшить мметод
-        $url = $_SERVER['REQUEST_URI'];
-        $url = explode('/', $url);
-        $url = array_filter($url);
+        $url = self::getSite() . '/api/posts/' . self::getPageCount(). '/' . self::getPageId();
+        $content = wp_remote_request( $url );
 
-        $pageId = $url[2] ? $url[2] : 1;
-
-        $content = wp_remote_request( self::getSite() . '/api/posts/' . $pageId);
 
         if ($content->errors) {
             return null;
         }
 
-        return json_decode($content['body'])->posts;
+        $posts = json_decode($content['body'])->posts;
+
+        if (empty($posts)) {
+            return null;
+        }
+
+        return $posts;
     }
 
     /**
@@ -78,27 +79,22 @@ class App extends Controller
      */
     public static function getPagination()
     {
-        // TODO: Улучшить мметод
-        $url = $_SERVER['REQUEST_URI'];
-        $url = explode('/', $url);
-        $url = array_filter($url);
-
-        $pageId = $url[2] ? $url[2] : 1;
-
         $result = wp_remote_request(self::getSite() . '/api/post/count/');
+
         if ($result->errors) {
             return null;
         }
 
         $count = json_decode($result['body'])->count;
-        $total = round($count / 2);
+        $total = round($count / self::getPageCount());
+        if ($count > self::getPageCount() && $total == 1) {
+            $total = 2;
+        }
 
         $pagination = paginate_links( array(
             'base' => str_replace( $count, '%#%', esc_url( '/api-post/%#%/' ) ),
-            'format' => '1',
-            'current' => $pageId,
+            'current' => self::getPageId(),
             'total' => $total,
-            'posts_per_page' => 3,
             'prev_next' => false,
         ) );
 
@@ -112,18 +108,34 @@ class App extends Controller
      */
     public static function postSingleResponse()
     {
-        // TODO: Улучшить мметод
-        $url = $_SERVER['REQUEST_URI'];
-        $url = explode('/', $url);
-        $url = array_filter($url);
-
-        $pageId = $url[2] ? $url[2] : 1;
-
-        $content = wp_remote_request( self::getSite() . '/api/post/show/' . $pageId );
+        $content = wp_remote_request( self::getSite() . '/api/post/show/' . self::getPageId() );
         if ($content->errors) {
             return null;
         }
 
         return json_decode($content['body'])->post;
+    }
+
+    /**
+     * Получаем Id страницы
+     *
+     * @return int
+     */
+    private static function getPageId()
+    {
+        $url = explode('/', $_SERVER['REQUEST_URI']);
+        $url = array_filter($url);
+
+        return $url[2] ? $url[2] : 1;
+    }
+
+    /**
+     * Получаем количество постов а странице по API
+     *
+     * @return null|string|string[]
+     */
+    public static function getPageCount()
+    {
+        return esc_attr( get_option('api_count_post_page'));
     }
 }
