@@ -128,31 +128,31 @@ function api_site_callback_function( $val ){
     />';
 }
 
-
 /**
- * Settings field Google Maps Api Key
+ * Количество жлементов на странице
  */
-function googleMapApiKey(){
-    $option_name = 'googleMapApiKey';
-   
+function api_count_post_page_general_admin_page(){
+    $option_name = 'api_count_post_page';
+
+    // регистрируем опцию
     register_setting( 'general', $option_name );
 
+    // добавляем поле
     add_settings_field(
-        'googleMapApiKey_page-id',
-        'Google Maps API Key',
-        'googleMapApiKeyCallbackFunction',
+        'api_count_post_page-id',
+        'Количество постов на странице',
+        'api_count_post_page_callback_function',
         'general',
         'default',
         array(
-            'id' => 'googleMapApiKey-id',
+            'id' => 'api_count_post_page-id',
             'option_name' => $option_name
         )
     );
 }
-
 add_action('admin_menu', 'api_count_post_page_general_admin_page');
 
-function googleMapApiKeyCallbackFunction( $val ){
+function api_count_post_page_callback_function( $val ){
     $id = $val['id'];
     $option_name = $val['option_name'];
     echo '<input
