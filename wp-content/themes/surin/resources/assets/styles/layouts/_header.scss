@@ -92,7 +92,7 @@
 
 .menu {
   background: #f8f8f8;
-  height: 55px;
+  height: 56px;
 
   ul {
     margin: 0;
@@ -120,7 +120,7 @@
     }
   }
 
-  ul li .active {
+  .current-menu-item a {
     color: #23a0bf;
     border-bottom: 3px solid;
   }

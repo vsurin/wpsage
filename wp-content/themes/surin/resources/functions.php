@@ -130,30 +130,29 @@ function api_site_callback_function( $val ){
 
 
 /**
- * Количество жлементов на странице
+ * Settings field Google Maps Api Key
  */
-function api_count_post_page_general_admin_page(){
-    $option_name = 'api_count_post_page';
-
-    // регистрируем опцию
+function googleMapApiKey(){
+    $option_name = 'googleMapApiKey';
+   
     register_setting( 'general', $option_name );
 
-    // добавляем поле
     add_settings_field(
-        'api_count_post_page-id',
-        'Количество постов на странице',
-        'api_count_post_page_callback_function',
+        'googleMapApiKey_page-id',
+        'Google Maps API Key',
+        'googleMapApiKeyCallbackFunction',
         'general',
         'default',
         array(
-            'id' => 'api_count_post_page-id',
+            'id' => 'googleMapApiKey-id',
             'option_name' => $option_name
         )
     );
 }
+
 add_action('admin_menu', 'api_count_post_page_general_admin_page');
 
-function api_count_post_page_callback_function( $val ){
+function googleMapApiKeyCallbackFunction( $val ){
     $id = $val['id'];
     $option_name = $val['option_name'];
     echo '<input
@@ -178,3 +177,5 @@ register_sidebar(array(
     'name' => __("Footer widget 4", 'Surin'),
     'id' => 'sidebar-footer-4',
 ));
+
+

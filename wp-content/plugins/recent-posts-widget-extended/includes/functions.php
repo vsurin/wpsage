@@ -205,10 +205,6 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 					$html .= '</li>';
 
-                    if (($posts->current_post +1) != ($posts->post_count)) {
-                        $html .= '<hr size="1">';
-                    }
-
 				endwhile;
 
 			$html .= '</ul>';

@@ -131,3 +131,293 @@
   line-height: 24px;
   letter-spacing: 0.35px;
 }
+
+.brecambs {
+  list-style: none;
+  display: flex;
+  border-bottom: 1px solid #eee;
+  padding: 0;
+  margin-top: 58px;
+
+  li {
+    margin-right: 15px;
+    margin-bottom: 34px;
+
+    color: #23a0bf;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 24px;
+    text-transform: uppercase;
+    color: #636363;
+    letter-spacing: 0.07px;
+
+    a {
+      color: #23a0bf;
+      font-family: Montserrat;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.07px;
+      text-decoration: none;
+    }
+  }
+}
+
+.single-content {
+  width: 860px;
+  padding: 0 26px 0 0;
+  float: left;
+  margin-bottom: 50px;
+
+  h1 {
+    color: #333333;
+    font-family: Montserrat;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+}
+
+.sitebar {
+  width: 241px;
+  padding: 0 0 0 26px;
+  float: left;
+  border-left: 1px solid #eee;
+  margin-top: 58px;
+  margin-bottom: 50px;
+
+  h3 {
+    margin: 0;
+    color: #23a0bf;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    padding: 0;
+
+    a {
+      color: #252525;
+      font-family: "Open Sans";
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 24px;
+    }
+  }
+
+  .rpwe-block li {
+    padding-bottom: 23px;
+    margin-bottom: 23px;
+  }
+
+  #recentcomments {
+    padding: 0;
+
+    li {
+      list-style: none;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 23px;
+      margin-bottom: 23px;
+
+      a {
+        text-decoration: none;
+        color: #000000;
+        font-family: "Open Sans";
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 24px;
+      }
+
+      .comment-author-link {
+        a {
+          color: #b5b5b5;
+          font-family: Montserrat;
+          font-size: 10px;
+          font-weight: 400;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li a {
+      color: #000000;
+      font-family: Montserrat;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 32px;
+      text-decoration: none;
+    }
+  }
+}
+
+.clear-both {
+  clear: both;
+}
+
+#reply-title {
+  color: #7d7d7d;
+  font-family: Montserrat;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -0.7px;
+  margin: 0;
+  margin-bottom: 19px;
+}
+
+.comment-notes {
+  color: #7d7d7d;
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: 21px;
+}
+
+#comments {
+  h2 {
+    color: #23a0bf;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 24px;
+    text-transform: uppercase;
+    letter-spacing: 0.35px;
+  }
+
+  label{
+    display: block;
+    color: #7d7d7d;
+    font-family: "Open Sans";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+}
+
+#comment {
+  border: 1px solid #c2c2c2;
+  width: 100%;
+}
+
+.comment-form-author, .comment-form-email, .comment-form-url {
+  float: left;
+  margin: 0;
+
+  input {
+    width: 260px;
+    padding: 0;
+    border: 1px solid #c2c2c2;
+    height: 34px;
+  }
+}
+
+.comment-form-email, .comment-form-url {
+  margin-left: 36px;
+}
+
+#submit {
+  width: 100%;
+  margin-top: 15px;
+  padding: 0;
+  border: 1px solid #c2c2c2;
+  background: none;
+  height: 36px;
+}
+
+#comments {
+  .fn {
+    color: #b7b7b7;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  ol{
+    list-style: none;
+  }
+
+  .reply {
+    margin-top: 27px;
+    margin-bottom: 27px;
+    padding-bottom: 27px;
+    border-bottom: 1px solid #eee;
+
+    a {
+      color: #7d7d7d;
+      font-family: Montserrat;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 24px;
+      text-decoration: none;
+      border-left: 1px solid #959595;
+      padding-left: 15px;
+    }
+  }
+}
+
+.comment-list {
+  margin-left: 0;
+  padding-left: 0;
+
+  .comment-content {
+    color: #7d7d7d;
+    font-family: "Open Sans";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  img {
+    width: 60px;
+    height: 60px;
+    float: left;
+    margin-right: 15px;
+  }
+
+  footer {
+    background: #fff;
+
+    a {
+      color: #b7b7b7;
+      font-family: Montserrat;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 24px;
+    }
+
+    .comment-metadata {
+      width: 150px;
+    }
+  }
+}
+
+.tag {
+  margin-top: 28px;
+  padding-bottom: 35px;
+  border-bottom: 1px solid #eee;
+
+  a {
+    text-decoration: none;
+    border: 1px solid #333;
+    padding: 7px;
+    border-radius: 15px;
+    color: #333333;
+    font-family: "Open Sans";
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.35px;
+    margin-right: 11px;
+  }
+}

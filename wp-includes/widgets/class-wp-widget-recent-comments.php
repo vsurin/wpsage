@@ -112,10 +112,9 @@ class WP_Widget_Recent_Comments extends WP_Widget {
 			foreach ( (array) $comments as $comment ) {
 				$output .= '<li class="recentcomments">';
 				/* translators: comments widget: 1: comment author, 2: post link */
-				$output .= sprintf( _x( '%1$s on %2$s', 'widgets' ),
-					'<span class="comment-author-link">' . get_comment_author_link( $comment ) . '</span>',
+				$output .= '<span class="comment-author-link">' . get_comment_author_link( $comment ) . '</span><br>'.
 					'<a href="' . esc_url( get_comment_link( $comment ) ) . '">' . get_the_title( $comment->comment_post_ID ) . '</a>'
-				);
+				;
 				$output .= '</li>';
 			}
 		}
